@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: loadData
+      author: eremeev
+      changes:
+        - loadData:
+            catalogName: catalog
+            columns:
+              - column:
+                  index:  0
+                  name:  name
+                  type:  STRING
+            commentLineStartsWith:  //
+            encoding:  UTF-8
+            file:  ${file.person.data}
+            quotchar:  ''''
+            relativeToChangelogFile:  true
+            schemaName:  public
+            separator:  ","
+            tableName: person
+            usePreparedStatements:  true

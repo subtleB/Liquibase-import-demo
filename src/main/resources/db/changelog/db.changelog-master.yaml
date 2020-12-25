@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - preConditions:
+
+  - property:
+      name:  file.person.data
+      value:  ./data/data_testing.csv
+      context: testing
+
+  - property:
+      name:  file.person.data
+      value:  ./data/data_production.csv
+      context: production
+
+  - runningAs:
+       username: liquibase
+
+  - include:
+      file: ./changeset/person.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: ./changeset/loadData.yaml
+      relativeToChangelogFile: true
